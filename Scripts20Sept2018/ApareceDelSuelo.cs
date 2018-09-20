@@ -16,6 +16,10 @@ public class ApareceDelSuelo : MonoBehaviour {
 
     private Vector2 startPointThis;
     public Animator animator;
+	
+	
+	public float maxHeight=2f;
+	public float minHeight=-3.5f;
 	// Use this for initialization
 	void Start () {
         DisableThis();
@@ -105,7 +109,7 @@ public class ApareceDelSuelo : MonoBehaviour {
     IEnumerator RiseFromEarth(Vector2 startPoint){
         //transform.position = new Vector2(rigidbody2D.velocity.x,summonVelocity);
 
-        Vector3 goal = new Vector3(0, 2f, 0);
+        Vector3 goal = new Vector3(0, maxHeight, 0);
         while(transform.localPosition!=goal){
             //transform.Translate(Vector3.up*Time.deltaTime);
             if(Input.GetKeyUp(KeyCode.W)){
@@ -129,7 +133,7 @@ public class ApareceDelSuelo : MonoBehaviour {
     {
         //transform.position = new Vector2(rigidbody2D.velocity.x,summonVelocity);
 
-        Vector3 goal = new Vector3(0, -3.5f, 0);
+        Vector3 goal = new Vector3(0, minHeight, 0);
         Debug.Log("goal(backtoEarth)= " + goal);
         while (transform.localPosition != goal)
         {
